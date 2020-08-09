@@ -2,8 +2,16 @@
 
 #include <stdlib.h>
 
+struct keyboardMemory{
+	char key;
+};
+
+typedef struct keyboardMemory keyboardMemory;
+
 // Our functions
-void setupKeys();
+void setupKeys(keyboardMemory*); // function to setup keyboard addresses
+void printkeyboardAddress(keyboardMemory*);
+int getTotalKeyboardKeys(); // idk if we actaully have to calculte this or not just for sake of ego :P
 
 // Our memory address
 static int keyboardKeys[] = {
@@ -24,9 +32,6 @@ static int bluetoothKeys[] = {
 
 };
 
-
-struct keyboardMemory{
-	char key;
-};
-
-typedef struct keyboardMemory keyboardMemory;
+// global variables
+static int total_no_of_Key = 126; // default keyboard key counts
+static int charMemSize = sizeof(char); // in my machine is 1 byte can be used to point towords next memory address
